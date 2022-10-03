@@ -72,7 +72,28 @@ public class App {
 
     //todo Task 3
     public void printPyramid(){
-        // input your solution here
+        int rows = 6;
+        int stars = 1;
+
+        for(int line = 0; line < rows; line++)
+        {
+            int spaces = rows - line - 1;
+
+            while (spaces > 0)
+            {
+                System.out.print(" ");
+                spaces --;
+            }
+
+            for (int starsInLine = 0; starsInLine < stars; starsInLine++)
+            {
+                System.out.print("*");
+            }
+
+            // line break
+            System.out.print(System.lineSeparator());
+            stars += 2;
+        }
     }
 
     //todo Task 4
