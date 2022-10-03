@@ -3,6 +3,8 @@ package at.ac.fhcampuswien;
 import java.text.DecimalFormat;
 import java.util.*;
 
+import static java.lang.Character.getNumericValue;
+
 public class App {
 
     //todo Task 1
@@ -158,7 +160,18 @@ public class App {
 
     //todo Task 6
     public void happyNumbers(){
-        // input your solution here
+        Scanner inputScanner = new Scanner(System.in);
+
+        System.out.print("n: ");
+        String n = inputScanner.next();
+
+        int[] number = new int[n.length()];
+        int position = 0;
+        for (char c: n.toCharArray()) {
+            number[position] = getNumericValue(c);
+        }
+
+        // todo
     }
 
     public static void main(String[] args){
