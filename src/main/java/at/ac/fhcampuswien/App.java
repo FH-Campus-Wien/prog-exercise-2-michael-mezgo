@@ -1,12 +1,47 @@
 package at.ac.fhcampuswien;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
 
     //todo Task 1
     public void largestNumber(){
-        // input your solution here
+        Scanner inputScanner = new Scanner(System.in);
+        double input;
+        double maxNumber = 0;
+
+        ArrayList<Double> numbers = new ArrayList<Double>();
+
+        do {
+            int numerator = numbers.size();
+            numerator ++;
+
+            System.out.print("Number " +  numerator + ": ");
+            input = inputScanner.nextDouble();
+
+            if (input < 0)
+            {
+                break;
+            }
+
+            numbers.add(input);
+        } while (input > 0);
+
+        if(numbers.size() == 0)
+        {
+            System.out.println("No number entered.");
+            return;
+        }
+
+        for (double d : numbers) {
+            if (maxNumber < d)
+                maxNumber = d;
+        }
+
+        DecimalFormat f = new DecimalFormat("#0.00");
+        System.out.println("The largest number is " +  f.format(maxNumber));
     }
 
     //todo Task 2
