@@ -12,7 +12,7 @@ public class App {
         double input;
         double maxNumber = 0;
 
-        ArrayList<Double> numbers = new ArrayList<Double>();
+        ArrayList<Double> numbers = new ArrayList<>();
 
         do {
             int numerator = numbers.size();
@@ -46,7 +46,28 @@ public class App {
 
     //todo Task 2
     public void stairs(){
-        // input your solution here
+        Scanner inputScanner = new Scanner(System.in);
+
+        System.out.print("n: ");
+        int n = inputScanner.nextInt();
+
+        if (n <= 0)
+        {
+            System.out.println("Invalid number!");
+            return;
+        }
+
+        int currentNumber = 1;
+
+        for (int currentLine = 0; currentLine < n; currentLine++)
+        {
+            for (int currentNumberInLine = 0; currentNumberInLine <= currentLine; currentNumberInLine++)
+            {
+                System.out.print(currentNumber + " ");
+                currentNumber++;
+            }
+            System.out.print(System.lineSeparator());
+        }
     }
 
     //todo Task 3
