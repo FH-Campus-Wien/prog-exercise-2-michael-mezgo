@@ -1,8 +1,7 @@
 package at.ac.fhcampuswien;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class App {
 
@@ -98,12 +97,63 @@ public class App {
 
     //todo Task 4
     public void printRhombus(){
-        // input your solution here
+        Scanner inputScanner = new Scanner(System.in);
+
+        System.out.print("h: ");
+        int height = inputScanner.nextInt();
+        System.out.print("c: ");
+        //char middleChar = inputScanner.next().charAt(0);
+
+        if (height % 2 != 0)
+        {
+            System.out.println("Invalid number!");
+            return;
+        }
+
+        // Muss noch gemacht werden!
     }
 
     //todo Task 5
-    public void marks(){
-        // input your solution here
+    public void marks() {
+        Scanner inputScanner = new Scanner(System.in);
+        ArrayList<Integer> markList = new ArrayList<>();
+        int mark;
+
+        do {
+            int numerator = markList.size();
+            numerator++;
+
+            System.out.print("Mark " + numerator + ": ");
+            mark = inputScanner.nextInt();
+
+            if (mark > 0) {
+                if (mark > 5) {
+                    numerator--;
+                    System.out.println("Invalid mark!");
+                } else {
+                    markList.add(mark);
+                }
+            }
+
+        } while (mark > 0);
+
+        double sum = 0;
+        int negativeMarks = 0;
+        double avg = 0;
+
+        if (markList.size() > 0) {
+            for (double d : markList) {
+                sum += d;
+
+                if (d == 5)
+                    negativeMarks++;
+            }
+
+            avg = sum / markList.size();
+        }
+
+        DecimalFormat f = new DecimalFormat("#0.00");
+        System.out.println("Average: " + f.format(avg) + System.lineSeparator() + "Negative marks: " + negativeMarks);
     }
 
     //todo Task 6
