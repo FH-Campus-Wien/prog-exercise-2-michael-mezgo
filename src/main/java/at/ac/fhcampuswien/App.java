@@ -1,14 +1,14 @@
 package at.ac.fhcampuswien;
 
 import java.text.DecimalFormat;
-import java.util.*;
+import java.util.Scanner;
 
 import static java.lang.Character.getNumericValue;
 
 public class App {
 
     //todo Task 1
-    public void largestNumber(){
+    public void largestNumber() {
         Scanner inputScanner = new Scanner(System.in);
 
         double input;
@@ -16,29 +16,27 @@ public class App {
         double maxNumber = 0;
 
         do {
-            System.out.print("Number " +  numerator + ": ");
+            System.out.print("Number " + numerator + ": ");
             input = inputScanner.nextDouble();
 
-            if(input > maxNumber)
-            {
+            if (input > maxNumber) {
                 maxNumber = input;
             }
 
-            numerator ++;
+            numerator++;
         } while (input > 0);
 
-        if(maxNumber == 0)
-        {
+        if (maxNumber == 0) {
             System.out.println("No number entered.");
             return;
         }
 
         DecimalFormat f = new DecimalFormat("#0.00");
-        System.out.println("The largest number is " +  f.format(maxNumber));
+        System.out.println("The largest number is " + f.format(maxNumber));
     }
 
     //todo Task 2
-    public void stairs(){
+    public void stairs() {
         Scanner inputScanner = new Scanner(System.in);
         int currentNumber = 1;
 
@@ -46,16 +44,13 @@ public class App {
         System.out.print("n: ");
         int n = inputScanner.nextInt();
 
-        if (n <= 0)
-        {
+        if (n <= 0) {
             System.out.println("Invalid number!");
             return;
         }
 
-        for (int currentLine = 0; currentLine < n; currentLine++)
-        {
-            for (int currentNumberInLine = 0; currentNumberInLine <= currentLine; currentNumberInLine++)
-            {
+        for (int currentLine = 0; currentLine < n; currentLine++) {
+            for (int currentNumberInLine = 0; currentNumberInLine <= currentLine; currentNumberInLine++) {
                 System.out.print(currentNumber + " ");
                 currentNumber++;
             }
@@ -64,24 +59,21 @@ public class App {
     }
 
     //todo Task 3
-    public void printPyramid(){
+    public void printPyramid() {
         final int ROWS = 6;
 
         int stars = 1;
         int spaces;
 
-        for(int line = 0; line < ROWS; line++)
-        {
+        for (int line = 0; line < ROWS; line++) {
             spaces = ROWS - line - 1;
 
-            while (spaces > 0)
-            {
+            while (spaces > 0) {
                 System.out.print(" ");
-                spaces --;
+                spaces--;
             }
 
-            for (int starsInLine = 0; starsInLine < stars; starsInLine++)
-            {
+            for (int starsInLine = 0; starsInLine < stars; starsInLine++) {
                 System.out.print("*");
             }
 
@@ -92,7 +84,7 @@ public class App {
     }
 
     //todo Task 4
-    public void printRhombus(){
+    public void printRhombus() {
         Scanner inputScanner = new Scanner(System.in);
         int spaces;
 
@@ -102,10 +94,8 @@ public class App {
         System.out.print("c: ");
         char middleChar = inputScanner.next().charAt(0);
 
-        if (height % 2 != 0)
-        {
+        if (height % 2 != 0) {
             System.out.println("Invalid number!");
-            return;
         }
     }
 
@@ -124,26 +114,23 @@ public class App {
             System.out.print("Mark " + displayMarkCounter + ": ");
             input = inputScanner.nextInt();
 
-            if (input >= 1 && input <= 5)
-            {
+            if (input >= 1 && input <= 5) {
                 avg = (avg * markCounter + input) / displayMarkCounter;
-                markCounter ++;
+                markCounter++;
 
-                if(input == 5)
-                    negativeMarkCounter ++;
-            }
-            else if (input != 0)
-            {
+                if (input == 5)
+                    negativeMarkCounter++;
+            } else if (input != 0) {
                 System.out.println("Invalid mark!");
             }
-        } while (input != 0); //Angabe: ... bis die Zahl 0 eingegeben wird.
+        } while (input != 0); //Exercise: ... bis die Zahl 0 eingegeben wird.
 
         DecimalFormat f = new DecimalFormat("#0.00");
         System.out.println("Average: " + f.format(avg) + System.lineSeparator() + "Negative marks: " + negativeMarkCounter);
     }
 
     //todo Task 6
-    public void happyNumbers(){
+    public void happyNumbers() {
         Scanner inputScanner = new Scanner(System.in);
 
         System.out.print("n: ");
@@ -151,32 +138,10 @@ public class App {
 
         int[] number = new int[n.length()];
         int position = 0;
-        for (char c: n.toCharArray()) {
+        for (char c : n.toCharArray()) {
             number[position] = getNumericValue(c);
         }
 
         // todo
-    }
-
-    public static void main(String[] args){
-        App exercise2 = new App();
-
-        System.out.println("Task 1: Largest Number");
-        exercise2.largestNumber();
-
-        System.out.println("\nTask 2: Stairs");
-        exercise2.stairs();
-
-        System.out.println("\nTask 3: Pyramide");
-        exercise2.printPyramid();
-
-        System.out.println("\nTask 4: Raute");
-        exercise2.printRhombus();
-
-        System.out.println("\nTask 5: Notendurchschnitt");
-        exercise2.marks();
-
-        System.out.println("\nTask 6: Fröhliche Zahlen");
-        exercise2.happyNumbers();
     }
 }
