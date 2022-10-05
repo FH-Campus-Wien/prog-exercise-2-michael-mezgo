@@ -10,35 +10,27 @@ public class App {
     //todo Task 1
     public void largestNumber(){
         Scanner inputScanner = new Scanner(System.in);
+
         double input;
+        int numerator = 1;
         double maxNumber = 0;
 
-        ArrayList<Double> numbers = new ArrayList<>();
-
         do {
-            int numerator = numbers.size();
-            numerator ++;
-
             System.out.print("Number " +  numerator + ": ");
             input = inputScanner.nextDouble();
 
-            if (input < 0)
+            if(input > maxNumber)
             {
-                break;
+                maxNumber = input;
             }
 
-            numbers.add(input);
+            numerator ++;
         } while (input > 0);
 
-        if(numbers.size() == 0)
+        if(maxNumber == 0)
         {
             System.out.println("No number entered.");
             return;
-        }
-
-        for (double d : numbers) {
-            if (maxNumber < d)
-                maxNumber = d;
         }
 
         DecimalFormat f = new DecimalFormat("#0.00");
@@ -156,6 +148,7 @@ public class App {
 
         DecimalFormat f = new DecimalFormat("#0.00");
         System.out.println("Average: " + f.format(avg) + System.lineSeparator() + "Negative marks: " + negativeMarks);
+    //todo
     }
 
     //todo Task 6
