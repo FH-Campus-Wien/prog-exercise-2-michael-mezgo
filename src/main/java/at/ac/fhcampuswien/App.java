@@ -136,13 +136,25 @@ public class App {
         System.out.print("n: ");
         String n = inputScanner.next();
 
-        int[] number = new int[n.length()];
-        int position = 0;
-        for (char c : n.toCharArray()) {
-            number[position] = getNumericValue(c);
-        }
+        int currentNumber = 0;
 
-        // todo
+        do
+        {
+            for (char c : n.toCharArray()) {
+                int num = getNumericValue(c);
+                currentNumber += Math.pow(num, 2);
+            }
+            n = currentNumber + "";
+        } while (currentNumber != 1 && currentNumber != 4); //FEHLER
+
+        if (currentNumber == 4)
+        {
+            System.out.println("Sad number!");
+        }
+        else
+        {
+            System.out.println("Happy number!");
+        }
     }
 
     public static void main(String[] args) {
