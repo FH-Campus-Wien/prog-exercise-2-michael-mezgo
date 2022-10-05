@@ -40,7 +40,9 @@ public class App {
     //todo Task 2
     public void stairs(){
         Scanner inputScanner = new Scanner(System.in);
+        int currentNumber = 1;
 
+        // Output n: for User-Input
         System.out.print("n: ");
         int n = inputScanner.nextInt();
 
@@ -49,8 +51,6 @@ public class App {
             System.out.println("Invalid number!");
             return;
         }
-
-        int currentNumber = 1;
 
         for (int currentLine = 0; currentLine < n; currentLine++)
         {
@@ -65,12 +65,14 @@ public class App {
 
     //todo Task 3
     public void printPyramid(){
-        int rows = 6;
-        int stars = 1;
+        final int ROWS = 6;
 
-        for(int line = 0; line < rows; line++)
+        int stars = 1;
+        int spaces;
+
+        for(int line = 0; line < ROWS; line++)
         {
-            int spaces = rows - line - 1;
+            spaces = ROWS - line - 1;
 
             while (spaces > 0)
             {
@@ -85,70 +87,59 @@ public class App {
 
             // line break
             System.out.print(System.lineSeparator());
-            stars += 2;
+            stars += 2; //Each line has 2 more stars than the previous one
         }
     }
 
     //todo Task 4
     public void printRhombus(){
         Scanner inputScanner = new Scanner(System.in);
+        int spaces;
 
         System.out.print("h: ");
         int height = inputScanner.nextInt();
+
         System.out.print("c: ");
-        //char middleChar = inputScanner.next().charAt(0);
+        char middleChar = inputScanner.next().charAt(0);
 
         if (height % 2 != 0)
         {
             System.out.println("Invalid number!");
             return;
         }
-
-        // Muss noch gemacht werden!
     }
 
     //todo Task 5
     public void marks() {
         Scanner inputScanner = new Scanner(System.in);
-        ArrayList<Integer> markList = new ArrayList<>();
-        int mark;
+
+        int markCounter = 0;
+        int negativeMarkCounter = 0;
+        double avg = 0;
+        int input = 0;
+        int displayMarkCounter;
 
         do {
-            int numerator = markList.size();
-            numerator++;
+            displayMarkCounter = markCounter + 1;
+            System.out.print("Mark " + displayMarkCounter + ": ");
+            input = inputScanner.nextInt();
 
-            System.out.print("Mark " + numerator + ": ");
-            mark = inputScanner.nextInt();
+            if (input >= 1 && input <= 5)
+            {
+                avg = (avg * markCounter + input) / displayMarkCounter;
+                markCounter ++;
 
-            if (mark > 0) {
-                if (mark > 5) {
-                    numerator--;
-                    System.out.println("Invalid mark!");
-                } else {
-                    markList.add(mark);
-                }
+                if(input == 5)
+                    negativeMarkCounter ++;
             }
-
-        } while (mark > 0);
-
-        double sum = 0;
-        int negativeMarks = 0;
-        double avg = 0;
-
-        if (markList.size() > 0) {
-            for (double d : markList) {
-                sum += d;
-
-                if (d == 5)
-                    negativeMarks++;
+            else if (input != 0)
+            {
+                System.out.println("Invalid mark!");
             }
-
-            avg = sum / markList.size();
-        }
+        } while (input != 0); //Angabe: ... bis die Zahl 0 eingegeben wird.
 
         DecimalFormat f = new DecimalFormat("#0.00");
-        System.out.println("Average: " + f.format(avg) + System.lineSeparator() + "Negative marks: " + negativeMarks);
-    //todo
+        System.out.println("Average: " + f.format(avg) + System.lineSeparator() + "Negative marks: " + negativeMarkCounter);
     }
 
     //todo Task 6
