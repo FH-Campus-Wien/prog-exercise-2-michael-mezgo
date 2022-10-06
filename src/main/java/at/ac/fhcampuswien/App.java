@@ -91,20 +91,20 @@ public class App {
         char c = inputScanner.next().charAt(0);
 
         int charsInLongestLine = h*2 - 1;
-        String secondHalfLine = "";
+        StringBuilder secondHalfLine = new StringBuilder();
 
         for (int i = 0; i < charsInLongestLine / 2 - 1; i++)
         {
-            secondHalfLine += (char)((int)c - i);
+            secondHalfLine.append((char) ((int) c - i));
         }
 
-        String firstHalfLine = "";
+        StringBuilder firstHalfLine = new StringBuilder();
         for (int i = secondHalfLine.length() - 1; i > 0; i--)
         {
-            firstHalfLine += secondHalfLine.charAt(i);
+            firstHalfLine.append(secondHalfLine.charAt(i));
         }
 
-        String longestLine = firstHalfLine + secondHalfLine;
+        String longestLine = firstHalfLine + secondHalfLine.toString();
         System.out.println(longestLine);
     }
 
