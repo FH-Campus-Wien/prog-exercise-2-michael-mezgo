@@ -93,23 +93,20 @@ public class App {
         System.out.print("c: ");
         char c = inputScanner.next().charAt(0);
 
-        if (h % 2 == 0)
-        {
+        if (h % 2 == 0) {
             System.out.println("Invalid number!");
             return;
         }
 
-        int charsInLongestLine = h*2 - 1;
+        int charsInLongestLine = h * 2 - 1;
         StringBuilder secondHalfLine = new StringBuilder();
 
-        for (int i = 0; i < charsInLongestLine / 2 - 1; i++)
-        {
+        for (int i = 0; i < charsInLongestLine / 2 - 1; i++) {
             secondHalfLine.append((char) ((int) c - i));
         }
 
         StringBuilder firstHalfLine = new StringBuilder();
-        for (int i = secondHalfLine.length() - 1; i > 0; i--)
-        {
+        for (int i = secondHalfLine.length() - 1; i > 0; i--) {
             firstHalfLine.append(secondHalfLine.charAt(i));
         }
 
@@ -125,7 +122,7 @@ public class App {
         int markCounter = 0;
         int negativeMarkCounter = 0;
         double avg = 0;
-        int input = 0;
+        int input;
         int displayMarkCounter;
 
         do {
@@ -158,11 +155,9 @@ public class App {
 
         // Calculate number
         int currentNumber;
-        do
-        {
+        do {
             currentNumber = 0;
-            for (int i = 0; i < n.length(); i++)
-            {
+            for (int i = 0; i < n.length(); i++) {
                 int num = getNumericValue(n.charAt(i));
                 currentNumber += Math.pow(num, 2);
             }
@@ -171,12 +166,9 @@ public class App {
         } while (currentNumber != 1 && currentNumber != 4);
 
         // Output
-        if (currentNumber == 4)
-        {
+        if (currentNumber == 4) {
             System.out.println("Sad number!");
-        }
-        else
-        {
+        } else {
             System.out.println("Happy number!");
         }
     }
