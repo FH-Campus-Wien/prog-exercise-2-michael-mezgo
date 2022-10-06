@@ -6,7 +6,6 @@ import java.util.Scanner;
 import static java.lang.Character.getNumericValue;
 
 public class App {
-
     //todo Task 1
     public void largestNumber() {
         Scanner inputScanner = new Scanner(System.in);
@@ -98,14 +97,14 @@ public class App {
             return;
         }
 
-        rows = rows/2 + 1;
+        rows = rows / 2 + 1;
 
-        for ( int i = 1 ; i <= rows; i++ ) //obere Hälfte
+        for (int i = 1; i <= rows; i++) //obere Hälfte
         {
             printRhombusLines(rows, alphabet, i);
         }
 
-        for (int i = rows - 1 ; i > 0; i-- ) //untere Hälfte
+        for (int i = rows - 1; i > 0; i--) //untere Hälfte
         {
             printRhombusLines(rows, alphabet, i);
         }
@@ -114,19 +113,26 @@ public class App {
     private void printRhombusLines(int rows, char alphabet, int i) {
         /*
         The following function lines of Code have been taken from the Internet | https://www.tutorialgateway.org/java-program-to-print-diamond-alphabets-pattern/, last visit: 06.10.2022
+
+        Kleine Änderungen durchgeführt.
          */
-        for (int j = 1 ; j <= rows - i; j++ )
-        {
+
+        // Ausgabe der Leerzeilen
+        for (int j = 1; j <= rows - i; j++) {
             System.out.print(" ");
         }
-        for (int k = i ; k >= 1; k-- )
-        {
-            System.out.print((char)(alphabet - k + 1));
+
+        //  Herunterzählen der linken Seite bis zum Zeichen
+        for (int k = i; k >= 1; k--) {
+            System.out.print((char) (alphabet - k + 1));
         }
-        for (int l = 2 ; l <= i; l++)
-        {
-            System.out.print((char)(alphabet - l + 1));
+
+        // Hochzählen auf der rechte Seite bis zum Zeichen
+        for (int l = 2; l <= i; l++) {
+            System.out.print((char) (alphabet - l + 1));
         }
+
+        // Zeilenumbruch
         System.out.println();
     }
 
