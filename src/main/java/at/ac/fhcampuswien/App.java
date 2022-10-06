@@ -86,17 +86,26 @@ public class App {
     //todo Task 4
     public void printRhombus() {
         Scanner inputScanner = new Scanner(System.in);
-        int spaces;
 
-        System.out.print("h: ");
-        int height = inputScanner.nextInt();
+        int h = inputScanner.nextInt();
+        char c = inputScanner.next().charAt(0);
 
-        System.out.print("c: ");
-        char middleChar = inputScanner.next().charAt(0);
+        int charsInLongestLine = h*2 - 1;
+        String secondHalfLine = "";
 
-        if (height % 2 != 0) {
-            System.out.println("Invalid number!");
+        for (int i = 0; i < charsInLongestLine / 2 - 1; i++)
+        {
+            secondHalfLine += (char)((int)c - i);
         }
+
+        String firstHalfLine = "";
+        for (int i = secondHalfLine.length() - 1; i > 0; i--)
+        {
+            firstHalfLine += secondHalfLine.charAt(i);
+        }
+
+        String longestLine = firstHalfLine + secondHalfLine;
+        System.out.println(longestLine);
     }
 
     //todo Task 5
