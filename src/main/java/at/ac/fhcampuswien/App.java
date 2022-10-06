@@ -88,31 +88,46 @@ public class App {
         Scanner inputScanner = new Scanner(System.in);
 
         System.out.print("h: ");
-        int h = inputScanner.nextInt();
+        int rows = inputScanner.nextInt();
 
         System.out.print("c: ");
-        char c = inputScanner.next().charAt(0);
+        char alphabet = inputScanner.next().charAt(0);
 
-        if (h % 2 == 0) {
+        if (rows % 2 == 0) {
             System.out.println("Invalid number!");
             return;
         }
 
-        int charsInLongestLine = h * 2 - 1;
-        StringBuilder secondHalfLine = new StringBuilder();
+        rows = rows/2 + 1;
 
-        for (int i = 0; i < charsInLongestLine / 2 - 1; i++) {
-            secondHalfLine.append((char) ((int) c - i));
+        for ( int i = 1 ; i <= rows; i++ ) //obere Hälfte
+        {
+            printRhombusLines(rows, alphabet, i);
         }
 
-        StringBuilder firstHalfLine = new StringBuilder();
-        for (int i = secondHalfLine.length() - 1; i > 0; i--) {
-            firstHalfLine.append(secondHalfLine.charAt(i));
+        for (int i = rows - 1 ; i > 0; i-- ) //untere Hälfte
+        {
+            printRhombusLines(rows, alphabet, i);
         }
+    }
 
-        String longestLine = firstHalfLine + secondHalfLine.toString();
-
-        System.out.println(longestLine);
+    private void printRhombusLines(int rows, char alphabet, int i) {
+        /*
+        The following function lines of Code have been taken from the Internet | https://www.tutorialgateway.org/java-program-to-print-diamond-alphabets-pattern/, last visit: 06.10.2022
+         */
+        for (int j = 1 ; j <= rows - i; j++ )
+        {
+            System.out.print(" ");
+        }
+        for (int k = i ; k >= 1; k-- )
+        {
+            System.out.print((char)(alphabet - k + 1));
+        }
+        for (int l = 2 ; l <= i; l++)
+        {
+            System.out.print((char)(alphabet - l + 1));
+        }
+        System.out.println();
     }
 
     //todo Task 5
