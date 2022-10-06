@@ -87,8 +87,17 @@ public class App {
     public void printRhombus() {
         Scanner inputScanner = new Scanner(System.in);
 
+        System.out.print("h: ");
         int h = inputScanner.nextInt();
+
+        System.out.print("c: ");
         char c = inputScanner.next().charAt(0);
+
+        if (h % 2 == 0)
+        {
+            System.out.println("Invalid number!");
+            return;
+        }
 
         int charsInLongestLine = h*2 - 1;
         StringBuilder secondHalfLine = new StringBuilder();
@@ -105,6 +114,7 @@ public class App {
         }
 
         String longestLine = firstHalfLine + secondHalfLine.toString();
+
         System.out.println(longestLine);
     }
 
