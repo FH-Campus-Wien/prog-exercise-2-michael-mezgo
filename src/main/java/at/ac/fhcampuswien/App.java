@@ -133,20 +133,25 @@ public class App {
     public void happyNumbers() {
         Scanner inputScanner = new Scanner(System.in);
 
+        // Input
         System.out.print("n: ");
         String n = inputScanner.next();
 
-        int currentNumber = 0;
-
+        // Calculate number
+        int currentNumber;
         do
         {
-            for (char c : n.toCharArray()) {
-                int num = getNumericValue(c);
+            currentNumber = 0;
+            for (int i = 0; i < n.length(); i++)
+            {
+                int num = getNumericValue(n.charAt(i));
                 currentNumber += Math.pow(num, 2);
             }
-            n = currentNumber + "";
-        } while (currentNumber != 1 && currentNumber != 4); //FEHLER
 
+            n = currentNumber + "";
+        } while (currentNumber != 1 && currentNumber != 4);
+
+        // Output
         if (currentNumber == 4)
         {
             System.out.println("Sad number!");
